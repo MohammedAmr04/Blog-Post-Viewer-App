@@ -1,9 +1,11 @@
 import { getFetchPost } from "@/api/fetch";
 import PostCard from "@/components/PostCard";
-
-export default async function Post(props: { params: { postId: string } }) {
-  const params = props.params;
-  const post = await getFetchPost(params.postId);
+interface PageProps {
+  params: { postId: string };
+}
+export default async function Post({ params }: PageProps) {
+  const awaitedParams = await params;
+  const post = await getFetchPost(awaitedParams.postId);
   return (
     <div className="mt-4">
       <PostCard postContent={post} />
