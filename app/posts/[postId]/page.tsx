@@ -1,7 +1,8 @@
 import { getFetchPost } from "@/api/fetch";
 import PostCard from "@/components/PostCard";
 
-export default async function Post({ params }: { params: { postId: string } }) {
+export default async function Post(props: { params: { postId: string } }) {
+  const params = await props.params;
   const post = await getFetchPost(params.postId);
   return (
     <div className="mt-4">
