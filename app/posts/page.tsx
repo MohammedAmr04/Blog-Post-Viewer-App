@@ -5,12 +5,12 @@ import Link from "next/link";
 export default async function Posts() {
   const posts = await getFetchPosts();
   return (
-    <div className="container">
+    <main className="container p-2.5 mx-auto gap-3 flex flex-col items-center">
       {posts.map((post) => (
-        <Link key={post.id} href={`posts/${post.id}`}>
+        <Link className=" max-w-full" key={post.id} href={`posts/${post.id}`}>
           <PostCard key={post.id} postContent={post} />
         </Link>
       ))}
-    </div>
+    </main>
   );
 }
