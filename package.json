@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "aos": "^3.0.0-beta.6",
     "motion": "^12.19.1",
     "next": "15.3.4",
