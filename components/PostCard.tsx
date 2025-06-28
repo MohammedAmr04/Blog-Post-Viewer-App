@@ -2,8 +2,10 @@
 
 import { Post } from "@/types/post";
 import Image from "next/image";
-import fallbackImage from "../assets/Image.jpg";
+import fallbackImage from "../assets/small.jpg";
+import { FiArrowUpRight } from "react-icons/fi"; // Import the arrow icon
 import "../app/globals.css";
+import Link from "next/link";
 
 type Variant = "large" | "full" | "small" | "normal";
 
@@ -55,11 +57,13 @@ type PostCardProps = {
   postContent: Post;
   variant?: Variant;
 };
+
 const tagColors: string[] = [
   "text-[var(--purple-color)] bg-[#F9F5FF]",
   "text-[#3538CD] bg-[#EEF4FF]",
   "text-[#C11574] bg-[#FDF2FA]",
 ];
+
 const truncateText = (text: string, maxLength: number) => {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength) + "...";
@@ -89,7 +93,7 @@ export default function PostCard({
       </div>
 
       {/* Content Section */}
-      <div className={config.contentContainer}>
+      <div className={`${config.contentContainer}`}>
         {/* Author + Date */}
         {(postContent.author || postContent.date) && (
           <p className="mb-2 text-sm font-semibold text-[var(--purple-color)]">
@@ -98,9 +102,15 @@ export default function PostCard({
         )}
 
         {/* Title */}
-        <h3 className="mb-2 text-2xl font-semibold text-[var(--black-color)] dark:text-[#fff]">
-          {truncateText(postContent.title, config.titleLength)}
-        </h3>
+        <div className="flex items-center justify-between">
+          <h3 className="mb-2 text-2xl font-semibold text-[var(--black-color)] dark:text-[#fff]">
+            {truncateText(postContent.title, config.titleLength)}
+          </h3>
+          <Link href={`posts/${postContent.id}`}>
+            <FiArrowUpRight className="w-4 h-4 text-[var(--black-color)] dark:text-[#fff]" />{" "}
+            {/* Replace Image with React Icon */}
+          </Link>
+        </div>
 
         {/* Description */}
         <p className="text-base text-[var(--gray-color)] dark:text-[#C0C5D0]">

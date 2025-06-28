@@ -1,10 +1,19 @@
 import { getFetchPosts } from "@/api/fetch";
 import AllPosts from "@/components/AllPosts";
-// import PostCard from "@/components/PostCard";
+import NavBar from "@/components/NavBar";
 import BlogSection from "@/components/RecentBlogPosts";
-import DarkModeToggle from "@/components/ToggleDarkMode";
-// import Link from "next/link";
 
+export default async function Posts() {
+  const posts = await getFetchPosts();
+  const blogData = posts.slice(0, 5);
+  return (
+    <main className="container mx-auto">
+      <NavBar />
+      <BlogSection posts={blogData} />
+      <AllPosts posts={posts.slice(5)} />
+    </main>
+  );
+}
 export const metadata = {
   title: "All Blog Posts | Mohammed Amr Blog",
   description:
@@ -16,24 +25,3 @@ export const metadata = {
     type: "website",
   },
 };
-
-export default async function Posts() {
-  const posts = await getFetchPosts();
-  const blogData = posts.slice(0, 5);
-  return (
-    <main className="container mx-auto">
-      <section title="header" className="flex flex-col gap-12 py-8">
-        <div className=" h-[60px] py-2.5 flex items-center justify-between">
-          <div className="font-semibold username">Mohammed Amr</div>
-          <DarkModeToggle />
-        </div>
-        <h1 className="font-bold  border-solid border-y my-0 py-0 border-black/30 uppercase text-[180px] text-[#1A1A1A] dark:text-[#fff] text-center">
-          <span className="me-4">The</span>
-          <span>blog</span>
-        </h1>
-      </section>
-      <BlogSection posts={blogData} />
-      <AllPosts posts={posts.slice(5)} />
-    </main>
-  );
-}
