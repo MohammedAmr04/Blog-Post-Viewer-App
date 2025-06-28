@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" >
-      <body>
+    <html lang="en">
+      <body className="dark:bg-[#090D1F] dark:text-[#fff]">
         <AOSProvider>{children}</AOSProvider>
       </body>
     </html>

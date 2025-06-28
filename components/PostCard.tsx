@@ -98,12 +98,12 @@ export default function PostCard({
         )}
 
         {/* Title */}
-        <h3 className="mb-2 text-2xl font-semibold text-[var(--black-color)]">
+        <h3 className="mb-2 text-2xl font-semibold text-[var(--black-color)] dark:text-[#fff]">
           {truncateText(postContent.title, config.titleLength)}
         </h3>
 
         {/* Description */}
-        <p className="text-base text-[var(--gray-color)]">
+        <p className="text-base text-[var(--gray-color)] dark:text-[#C0C5D0]">
           {truncateText(postContent.body, config.bodyLength)}
         </p>
 

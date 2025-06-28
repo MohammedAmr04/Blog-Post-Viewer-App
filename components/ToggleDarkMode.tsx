@@ -1,5 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
+import SunLight from "../assets/sun.svg";
+import SunDark from "../assets/sunDark.svg";
+import MoonLight from "../assets/moon.svg";
+import MoonDark from "../assets/moonDark.svg";
+import Image from "next/image";
 
 const DarkModeToggle: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
@@ -26,12 +31,35 @@ const DarkModeToggle: React.FC = () => {
   };
 
   return (
-    <button
-      onClick={toggleDarkMode}
-      className="px-4 py-2 text-gray-800 transition-colors duration-200 bg-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-200"
+    <div
+      className="relative inline-flex items-center cursor-pointer"
+      aria-label="Toggle dark mode"
     >
-      {darkMode ? "light mode" : "dark mode"}
-    </button>
+      <input
+        type="checkbox"
+        checked={darkMode}
+        onChange={toggleDarkMode}
+        className="sr-only"
+        id="dark-mode-toggle"
+      />
+      <div
+        className="flex justify-center gap-1 transition-colors duration-200 bg-[#090D1F] rounded-full shadow-inner w-14 h-7 dark:bg-[#FFFFFF]"
+        onClick={toggleDarkMode}
+      >
+        {!darkMode && (
+          <>
+            <Image src={SunLight} alt="Sun" width={18} height={18} />
+            <Image src={MoonLight} alt="Moon" width={18} height={18} />
+          </>
+        )}
+        {darkMode && (
+          <>
+            <Image src={SunDark} alt="Sun" width={18} height={18} />
+            <Image src={MoonDark} alt="Moon" width={18} height={18} />
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 
