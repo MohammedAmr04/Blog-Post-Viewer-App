@@ -5,7 +5,6 @@ import Image from "next/image";
 import fallbackImage from "../assets/Image.jpg";
 import "../app/globals.css";
 
-// تعريف أنواع الـ Variants وخصائصها
 type Variant = "large" | "full" | "small" | "normal";
 
 interface VariantConfig {
@@ -56,7 +55,11 @@ type PostCardProps = {
   postContent: Post;
   variant?: Variant;
 };
-
+const tagColors: string[] = [
+  "text-[var(--purple-color)] bg-[#F9F5FF]",
+  "text-[#3538CD] bg-[#EEF4FF]",
+  "text-[#C11574] bg-[#FDF2FA]",
+];
 const truncateText = (text: string, maxLength: number) => {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength) + "...";
@@ -89,33 +92,33 @@ export default function PostCard({
       <div className={config.contentContainer}>
         {/* Author + Date */}
         {(postContent.author || postContent.date) && (
-          <p className="mb-2 text-sm text-gray-400">
+          <p className="mb-2 text-sm font-semibold text-[var(--purple-color)]">
             {postContent.author} {postContent.date && ` • ${postContent.date}`}
           </p>
         )}
 
         {/* Title */}
-        <h3 className="mb-2 text-xl font-bold transition-colors duration-300 hover:text-blue-400">
+        <h3 className="mb-2 text-2xl font-semibold text-[var(--black-color)]">
           {truncateText(postContent.title, config.titleLength)}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-blue-200">
+        <p className="text-base text-[var(--gray-color)]">
           {truncateText(postContent.body, config.bodyLength)}
         </p>
 
         {/* Tags */}
         {postContent.tags && postContent.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-4">
+          <ul className="flex flex-wrap gap-2 mt-4 list-none">
             {postContent.tags.map((tag, index) => (
-              <span
-                key={index}
-                className="px-2 py-1 text-xs text-blue-300 bg-gray-700 rounded"
+              <li
+                key={tag}
+                className={`${tagColors[index]} px-2 py-1 text-sm font-medium rounded-2xl`}
               >
                 {tag}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </div>
     </div>

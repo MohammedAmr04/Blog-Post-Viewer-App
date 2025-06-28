@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+    --purple-color: #6941C6;
+    --black-color: #1A1A1A;
+    --gray-color: #667085
+}
+
 @keyframes arrow {
 
     0%,
@@ -22,4 +28,26 @@
 
 .customImage {
     position: relative !important;
+}
+
+
+
+@keyframes rotate-right {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes rotate-left {
+    to {
+        transform: rotate(0);
+    }
+
+    from {
+        transform: rotate(1turn);
+    }
 }

@@ -27,7 +27,7 @@ export default async function Posts() {
           <div className="username">Mohammed Amr</div>
           <DarkModeToggle />
         </div>
-        <h1 className="font-bold border-solid border-y my-0 py-0 border-black/30 uppercase text-[180px] text-[#1A1A1A] text-center">
+        <h1 className="font-bold  dark:text-amber-300 border-solid border-y my-0 py-0 border-black/30 uppercase text-[180px] text-[#1A1A1A] text-center">
           <span className="me-4">The</span>
           <span>blog</span>
         </h1>
