@@ -1,9 +1,9 @@
-import { Post } from "@/types/post";
+import { IPost } from "@/types/post";
 import React from "react";
 import PostCard from "./PostCard";
 
 type BlogSectionProps = {
-  posts: Post[];
+  posts: IPost[];
 };
 
 const BlogSection = ({ posts }: BlogSectionProps) => {

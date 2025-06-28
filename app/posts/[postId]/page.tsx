@@ -1,6 +1,6 @@
 import { getFetchPost } from "@/api/fetch";
 import NavBar from "@/components/NavBar";
-import { Post } from "@/types/post";
+import { IPost } from "@/types/post";
 import Image from "next/image";
 
 export default async function Post({
@@ -9,7 +9,7 @@ export default async function Post({
   params: Promise<{ postId: string }>;
 }) {
   const { postId } = await params;
-  const post: Post = await getFetchPost(postId);
+  const post: IPost = await getFetchPost(postId);
   return (
     <main className="container mx-auto">
       <NavBar />

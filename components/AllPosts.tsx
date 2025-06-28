@@ -1,11 +1,11 @@
 "use client";
-import { Post } from "@/types/post";
+import { IPost } from "@/types/post";
 import React, { useState } from "react";
 import PostCard from "./PostCard";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 type SectionProps = {
-  posts: Post[];
+  posts: IPost[];
   pageSize?: number;
 };
 

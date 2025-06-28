@@ -1,6 +1,6 @@
 "use client";
 
-import { Post } from "@/types/post";
+import { IPost } from "@/types/post";
 import Image from "next/image";
 import fallbackImage from "../assets/small.jpg";
 import { FiArrowUpRight } from "react-icons/fi"; // Import the arrow icon
@@ -45,7 +45,7 @@ const variantConfig: Record<Variant, VariantConfig> = {
   },
   full: {
     container: "flex flex-col lg:flex-row w-full",
-    imageContainer: "w-full lg:w-1/2 ",
+    imageContainer: "w-full lg:w-1/2  h-56 ",
     contentContainer: "w-full lg:w-1/2 p-6",
     titleLength: 40,
     bodyLength: 120,
@@ -54,7 +54,7 @@ const variantConfig: Record<Variant, VariantConfig> = {
 };
 
 type PostCardProps = {
-  postContent: Post;
+  postContent: IPost;
   variant?: Variant;
 };
 
@@ -84,7 +84,7 @@ export default function PostCard({
       <div className={`relative ${config.imageContainer}`}>
         <Image
           src={postContent.image || fallbackImage}
-          alt={postContent.title || "Post image"}
+          alt={postContent.title || "IPost image"}
           fill
           sizes={config.imageSizes}
           className="object-cover"

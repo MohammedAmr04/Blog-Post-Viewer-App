@@ -1,4 +1,4 @@
-import { Post } from "../types/post";
+import { IPost } from "../types/post";
 import small from "../assets/small.jpg";
 import small2 from "../assets/small2.jpg";
 import normal from "../assets/normal.jpg";
@@ -29,17 +29,17 @@ const getRandomImage = (): StaticImageData => {
 
 /**
  * Fetches posts from JSONPlaceholder API and enriches them with random authors, tags, and images.
- * @returns A promise that resolves to an array of enriched Post objects.
+ * @returns A promise that resolves to an array of enriched IPost objects.
  * @throws Error if the API request fails.
  */
-async function getFetchPosts(): Promise<Post[]> {
+async function getFetchPosts(): Promise<IPost[]> {
   try {
     const res = await fetch(BASE_URL);
     if (!res.ok) {
       throw new Error(`Failed to fetch posts: ${res.status}`);
     }
     const rawData: postApi[] = await res.json();
-    const posts: Post[] = rawData.slice(0, 100).map((post: postApi) => ({
+    const posts: IPost[] = rawData.slice(0, 100).map((post: postApi) => ({
       ...post,
       author: USER_NAME[Math.floor(Math.random() * USER_NAME.length)],
       date: new Date(
@@ -63,17 +63,17 @@ async function getFetchPosts(): Promise<Post[]> {
 /**
  * Fetches a single post from JSONPlaceholder API by ID and enriches it with random author, date, tags, and image.
  * @param id - The ID of the post to fetch.
- * @returns A promise that resolves to an enriched Post object.
+ * @returns A promise that resolves to an enriched IPost object.
  * @throws Error if the API request fails.
  */
-async function getFetchPost(id: string): Promise<Post> {
+async function getFetchPost(id: string): Promise<IPost> {
   try {
     const res = await fetch(`${BASE_URL}/${id}`);
     if (!res.ok) {
       throw new Error(`Failed to fetch post ${id}: ${res.status}`);
     }
     const data: postApi = await res.json();
-    const enrichedPost: Post = {
+    const enrichedPost: IPost = {
       ...data,
       author: USER_NAME[Math.floor(Math.random() * USER_NAME.length)],
       date: new Date(
