@@ -3,7 +3,15 @@
 
 :root {
     --purple-color: #6941C6;
+    --bg-purple-color: #F9F5FF;
     --black-color: #1A1A1A;
+    --blue-color: #3538CD;
+    --bg-blue-color: #EEF4FF;
+
+    --pink-color: #C11574;
+    --bg-pink-color: #FDF2FA;
+
+    --dark-description-color: #C0c5D0;
     --gray-color: #667085
 }
 

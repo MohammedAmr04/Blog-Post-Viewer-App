@@ -43,7 +43,7 @@ const AllPosts = ({ posts, pageSize = 6 }: SectionProps) => {
       </div>
       <div className="flex flex-col items-center justify-between gap-4 mt-8 md:flex-row">
         <button
-          className="px-3 py-1 group flex gap-2 cursor-pointer items-center text-[#667085] dark:text-white font-medium  disabled:opacity-50"
+          className="px-3 py-1 group flex gap-2 cursor-pointer items-center text-[var(--gray-color)] dark:text-white font-medium  disabled:opacity-50"
           onClick={() => setPage((p) => Math.max(1, p - 1))}
           disabled={page === 1}
         >
@@ -76,7 +76,7 @@ const AllPosts = ({ posts, pageSize = 6 }: SectionProps) => {
           )}
         </div>
         <button
-          className="px-3 group py-1 cursor-pointer flex gap-2 items-center text-[#667085] dark:text-white font-medium  disabled:opacity-50"
+          className="px-3 group py-1 cursor-pointer flex gap-2 items-center text-[var(--gray-color)] dark:text-white font-medium  disabled:opacity-50"
           onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
           disabled={page === totalPages}
         >

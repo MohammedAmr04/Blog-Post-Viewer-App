@@ -36,7 +36,7 @@ export default async function Post({
         <p className="mb-2 text-sm font-semibold text-[var(--purple-color)]">
           {post.author} {post.date}
         </p>
-        <h1 className="mb-4 text-2xl font-semibold text-[var(--black-color)] dark:text-[#fff]">
+        <h1 className="mb-4 text-2xl font-semibold text-[var(--black-color)] dark:text-white">
           {post.title}
         </h1>
         <div className={`relative w-full h-[400px]`}>
@@ -49,7 +49,7 @@ export default async function Post({
             aria-describedby="image-description"
           />
         </div>
-        <p className="font-normal text-base py-4 px-2  dark:text-[#C0C5D0] mt-4 ">
+        <p className="font-normal text-base py-4 px-2  dark:text-[var(--dark-description-color)] mt-4 ">
           {post.body.repeat(6)}
         </p>
       </article>

@@ -43,7 +43,7 @@ const DarkModeToggle: React.FC = () => {
         id="dark-mode-toggle"
       />
       <div
-        className="flex justify-center gap-1 transition-colors duration-200 bg-[#090D1F] rounded-full shadow-inner w-14 h-7 dark:bg-[#FFFFFF]"
+        className="flex justify-center gap-1 transition-colors duration-200 bg-[#090D1F] rounded-full shadow-inner w-14 h-7 dark:bg-white"
         onClick={toggleDarkMode}
       >
         {!darkMode && (

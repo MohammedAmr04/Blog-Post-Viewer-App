@@ -59,9 +59,9 @@ type PostCardProps = {
 };
 
 const tagColors: string[] = [
-  "text-[var(--purple-color)] bg-[#F9F5FF]",
-  "text-[#3538CD] bg-[#EEF4FF]",
-  "text-[#C11574] bg-[#FDF2FA]",
+  "text-[var(--purple-color)] bg-[var(bg-purple-color)]",
+  "text-[var(--blue-color)] bg-[--bg-blue-color]",
+  "text-[var(--pink-color)] bg-[var(--bg-pink-color)]",
 ];
 
 const truncateText = (text: string, maxLength: number) => {
@@ -118,7 +118,7 @@ export default function PostCard({
         </div>
 
         {/* Description */}
-        <p className="text-base text-[var(--gray-color)] dark:text-[#C0C5D0]">
+        <p className="text-base text-[var(--gray-color)] dark:text-[var(--dark-description-color)]">
           {truncateText(postContent.body, config.bodyLength)}
         </p>
 
