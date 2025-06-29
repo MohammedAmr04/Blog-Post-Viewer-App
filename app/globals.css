@@ -26,10 +26,6 @@
     animation: arrow 1.2s infinite;
 }
 
-.customImage {
-    position: relative !important;
-}
-
 
 
 @keyframes rotate-right {

@@ -4,12 +4,12 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main
-      className="bg-gray-800 m-5 text-amber-50 p-5 flex justify-center items-center text-3xl"
+      className="flex items-center justify-center p-5 m-5 text-3xl text-white bg-gray-800"
       style={{ height: "calc(100vh - 40px)" }}
       data-aos="fade-down"
     >
-      <div className=" font-bold text-center flex flex-col items-center justify-center">
-        <h1 className=" text-center text-4xl ">
+      <div className="flex flex-col items-center justify-center font-bold text-center ">
+        <h1 className="text-4xl text-center ">
           Explore a world of stories and ideas posts!
         </h1>
         <Link href="/posts" className="block w-auto mt-6 ">

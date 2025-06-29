@@ -43,11 +43,11 @@ const AllPosts = ({ posts, pageSize = 6 }: SectionProps) => {
       </div>
       <div className="flex flex-col items-center justify-between gap-4 mt-8 md:flex-row">
         <button
-          className="px-3 py-1 flex gap-2 cursor-pointer items-center text-[#667085] dark:text-white font-medium  disabled:opacity-50"
+          className="px-3 py-1 group flex gap-2 cursor-pointer items-center text-[#667085] dark:text-white font-medium  disabled:opacity-50"
           onClick={() => setPage((p) => Math.max(1, p - 1))}
           disabled={page === 1}
         >
-          <FaArrowLeft />
+          <FaArrowLeft className="animate-arrow-on-hover" />
           Previous
         </button>
         <div className="flex gap-1">
@@ -63,10 +63,10 @@ const AllPosts = ({ posts, pageSize = 6 }: SectionProps) => {
             ) : (
               <button
                 key={pageNum}
-                className={`px-3  font-bold py-1 transition-all duration-300 rounded ${
+                className={`px-3  font-bold cursor-pointer py-1 transition-all duration-300 rounded ${
                   pageNum === page
-                    ? " bg-gray-200 text-purple-500"
-                    : " text-gray-700 dark:text-white hover:bg-gray-300"
+                    ? " dark:bg-gray-200 text-purple-500"
+                    : " text-gray-700 dark:text-white hover:bg-gray-400"
                 }`}
                 onClick={() => setPage(Number(pageNum))}
               >
@@ -76,11 +76,11 @@ const AllPosts = ({ posts, pageSize = 6 }: SectionProps) => {
           )}
         </div>
         <button
-          className="px-3 py-1 cursor-pointer flex gap-2 items-center text-[#667085] dark:text-white font-medium  disabled:opacity-50"
+          className="px-3 group py-1 cursor-pointer flex gap-2 items-center text-[#667085] dark:text-white font-medium  disabled:opacity-50"
           onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
           disabled={page === totalPages}
         >
-          Next <FaArrowRight />
+          Next <FaArrowRight className="animate-arrow-on-hover" />
         </button>
       </div>
     </section>

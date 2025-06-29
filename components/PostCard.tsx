@@ -45,7 +45,7 @@ const variantConfig: Record<Variant, VariantConfig> = {
   },
   full: {
     container: "flex flex-col lg:flex-row w-full",
-    imageContainer: "w-full lg:w-1/2  h-56 ",
+    imageContainer: "w-full lg:w-1/2  h-56",
     contentContainer: "w-full lg:w-1/2 p-6",
     titleLength: 40,
     bodyLength: 120,
@@ -77,8 +77,9 @@ export default function PostCard({
 
   return (
     <div
-      className={`overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 ${config.container}`}
+      className={`group overflow-hidden  shadow-none hover:scale-105  hover:shadow-md transition-all duration-500 ${config.container}`}
       data-aos="fade-up"
+      style={{ transition: "all 500ms" }}
     >
       {/* Image Section */}
       <div className={`relative ${config.imageContainer}`}>
@@ -107,7 +108,10 @@ export default function PostCard({
             {truncateText(postContent.title, config.titleLength)}
           </h3>
           <Link href={`posts/${postContent.id}`}>
-            <FiArrowUpRight className="w-4 h-4 text-[var(--black-color)] dark:text-[#fff]" />{" "}
+            <FiArrowUpRight
+              width={20}
+              className="w-5  h-4 text-[var(--black-color)] animate-arrow-on-hover dark:text-[#fff]"
+            />{" "}
             {/* Replace Image with React Icon */}
           </Link>
         </div>
@@ -119,7 +123,7 @@ export default function PostCard({
 
         {/* Tags */}
         {postContent.tags && postContent.tags.length > 0 && (
-          <ul className="flex flex-wrap gap-2 mt-4 list-none">
+          <ul className="flex flex-wrap justify-start gap-2 mt-4 list-none">
             {postContent.tags.map((tag, index) => (
               <li
                 key={tag}
