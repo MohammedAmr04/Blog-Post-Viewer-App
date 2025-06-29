@@ -30,7 +30,7 @@ export default function NavBar() {
       {/* Mobile Menu */}
       <div
         className={`fixed top-0 flex items-center font-semibold -left-full h-screen w-full bg-white text-black dark:bg-black  dark:text-white p-6 transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen
+          !isMenuOpen
             ? "translate-x-0 opacity-0 "
             : "translate-x-full opacity-100"
         } md:hidden z-50`}
