@@ -6,10 +6,12 @@ import Image from "next/image";
 export async function generateMetadata({
   params,
 }: {
-  params: { postId: string };
+  params: Promise<{ postId: string }>;
 }) {
   const { getFetchPost } = await import("@/api/fetch");
-  const post = await getFetchPost(params.postId);
+  const { postId } = await params;
+
+  const post = await getFetchPost(postId);
   return {
     title: post.title + " | Mohammed Amr Blog",
     description: post.body.slice(0, 150),
@@ -31,7 +33,7 @@ export default async function Post({
   const post: IPost = await getFetchPost(postId);
   return (
     <main className="container mx-auto">
-      <NavBar />
+      <NavBar flag={0} />
       <article className="container ">
         <p className="mb-2 px-4 text-sm font-semibold text-[var(--purple-color)]">
           {post.author} {post.date}
