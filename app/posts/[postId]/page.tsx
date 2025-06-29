@@ -33,7 +33,7 @@ export default async function Post({
   const post: IPost = await getFetchPost(postId);
   return (
     <main className="container mx-auto">
-      <NavBar flag={0} />
+      <NavBar />
       <article className="container ">
         <p className="mb-2 px-4 text-sm font-semibold text-[var(--purple-color)]">
           {post.author} {post.date}

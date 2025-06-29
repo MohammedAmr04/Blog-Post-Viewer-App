@@ -5,11 +5,7 @@ import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import Link from "next/link";
 
-type NavBarProps = {
-  flag?: number;
-};
-
-export default function NavBar({ flag = 1 }: NavBarProps) {
+export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -61,14 +57,12 @@ export default function NavBar({ flag = 1 }: NavBarProps) {
         />
       </div>
 
-      {flag && (
-        <h1 className="font-bold text-6xl sm:text-[72px] md:text-[140px] border-solid border-y my-0 line- py-3 border-black/30 dark:border-white uppercase lg:text-[180px] text-[var(--black-color)] dark:text-white text-center">
-          <Link href={`/posts`}>
-            <span className="me-4">The</span>
-            <span>blog</span>
-          </Link>
-        </h1>
-      )}
+      <h1 className="font-bold text-6xl sm:text-[72px] md:text-[140px] border-solid border-y my-0 line- py-3 border-black/30 dark:border-white uppercase lg:text-[180px] text-[var(--black-color)] dark:text-white text-center">
+        <Link href={`/posts`}>
+          <span className="me-4">The</span>
+          <span>blog</span>
+        </Link>
+      </h1>
     </section>
   );
 }
