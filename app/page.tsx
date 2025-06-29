@@ -22,3 +22,14 @@ export default function Home() {
     </main>
   );
 }
+export const metadata = {
+  title: "Home | Mohammed Amr Blog",
+  description:
+    "Welcome to Mohammed Amr's blog. Explore a world of stories and ideas!",
+  openGraph: {
+    title: "Home | Mohammed Amr Blog",
+    description:
+      "Welcome to Mohammed Amr's blog. Explore a world of stories and ideas!",
+    type: "website",
+  },
+};

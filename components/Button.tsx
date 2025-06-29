@@ -26,6 +26,7 @@ export default function Button({
       className={`${className} my-5 px-6  py-2 cursor-pointer bg-sky-600 text-gray-200 rounded-lg font-bold shadow hover:bg-sky-900 transition-colors duration-500 flex items-center justify-center`}
       disabled={loading}
       onClick={handleClick}
+      title="button"
     >
       {loading ? (
         <span className={spinnerClassName}></span>

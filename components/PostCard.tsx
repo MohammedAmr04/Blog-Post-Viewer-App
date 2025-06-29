@@ -89,6 +89,7 @@ export default function PostCard({
           fill
           sizes={config.imageSizes}
           className="object-cover"
+          aria-describedby="image-description"
           priority={variant === "large" || variant === "full"}
         />
       </div>
