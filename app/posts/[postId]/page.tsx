@@ -33,10 +33,10 @@ export default async function Post({
     <main className="container mx-auto">
       <NavBar />
       <article className="container ">
-        <p className="mb-2 text-sm font-semibold text-[var(--purple-color)]">
+        <p className="mb-2 px-2 text-sm font-semibold text-[var(--purple-color)]">
           {post.author} {post.date}
         </p>
-        <h1 className="mb-4 text-2xl font-semibold text-[var(--black-color)] dark:text-white">
+        <h1 className="mb-4 px-2 text-2xl font-semibold text-[var(--black-color)] dark:text-white">
           {post.title}
         </h1>
         <div className={`relative w-full h-[400px]`}>

@@ -59,9 +59,9 @@ type PostCardProps = {
 };
 
 const tagColors: string[] = [
-  "text-[var(--purple-color)] bg-[var(bg-purple-color)]",
-  "text-[var(--blue-color)] bg-[--bg-blue-color]",
-  "text-[var(--pink-color)] bg-[var(--bg-pink-color)]",
+  "text-[var(--purple-color)] bg-[var(--purple-color-bg)]",
+  "text-[var(--blue-color)] bg-[var(--blue-color-bg)]",
+  "text-[var(--pink-color)] bg-[var(--pink-color-bg)]",
 ];
 
 const truncateText = (text: string, maxLength: number) => {
@@ -83,15 +83,18 @@ export default function PostCard({
     >
       {/* Image Section */}
       <div className={`relative ${config.imageContainer}`}>
-        <Image
-          src={postContent.image || fallbackImage}
-          alt={postContent.title || "IPost image"}
-          fill
-          sizes={config.imageSizes}
-          className="object-cover"
-          aria-describedby="image-description"
-          priority={variant === "large" || variant === "full"}
-        />
+        {" "}
+        <Link href={`posts/${postContent.id}`}>
+          <Image
+            src={postContent.image || fallbackImage}
+            alt={postContent.title || "IPost image"}
+            fill
+            sizes={config.imageSizes}
+            className="object-cover"
+            aria-describedby="image-description"
+            priority={variant === "large" || variant === "full"}
+          />
+        </Link>
       </div>
 
       {/* Content Section */}
@@ -106,7 +109,9 @@ export default function PostCard({
         {/* Title */}
         <div className="flex items-center justify-between">
           <h3 className="mb-2 text-2xl font-semibold text-[var(--black-color)] dark:text-[#fff]">
-            {truncateText(postContent.title, config.titleLength)}
+            <Link href={`posts/${postContent.id}`}>
+              {truncateText(postContent.title, config.titleLength)}{" "}
+            </Link>
           </h3>
           <Link href={`posts/${postContent.id}`}>
             <FiArrowUpRight
